@@ -1,0 +1,37 @@
+Some basic VIM bindings to run the refactor commands.
+
+This needs to be put into a proper vim plugin bundle but this bit of
+vimscript provides some basic bindings until it is done properly.
+
+INSTALLATION
+
+Either save this file some where safe and add the following line to your
+.vimrc file:
+
+source path/to/this/file
+
+Or simply copy the contents of this file into your .vimrc
+
+USAGE
+
+The file you are refactoring MUST be saved before any refactoring commands
+will work.
+
+- EXTRACT METHOD
+  Go into visual mode and select the code you want to extract to a new
+  method the press <Leader>rem
+
+  You will be prompted for the name of the new method.
+
+- RENAME LOCAL VARIABLE
+  In normal mode move the cursor so it's inside the name of the variable
+  which you want to rename. Press <Leader>rlv
+
+  You will be prompted for the new name of the variable.
+
+- LOCAL VARIABLE TO INSTANCE VARIABLE
+  In normal mode move the cursor so it's inside the name of the variable
+  which you want to rename. Press <Leader>rli
+
+- OPTIMIZE USE
+  Simple press <Leader>rou to run the optimize use refactoring.
