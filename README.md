@@ -27,19 +27,19 @@ When inside a PHP file the following mappings work
 
 ### EXTRACT METHOD
 Go into visual mode and select the code you want to extract to a new
-method the press <Leader>rem
+method the press `<Leader>rem`
 
 You will be prompted for the name of the new method.
 
 ### RENAME LOCAL VARIABLE
 In normal mode move the cursor so it's inside the name of the variable
-which you want to rename. Press <Leader>rlv
+which you want to rename. Press `<Leader>rlv`
 
 You will be prompted for the new name of the variable.
 
 ### LOCAL VARIABLE TO INSTANCE VARIABLE
 In normal mode move the cursor so it's inside the name of the variable
-which you want to rename. Press <Leader>rli
+which you want to rename. Press `<Leader>rli`
 
 ### OPTIMIZE USE
-Simple press <Leader>rou to run the optimize use refactoring.
+Simple press `<Leader>rou` to run the optimize use refactoring.
