@@ -7,7 +7,7 @@ Installation
 ------------
 
 ### Using Vundle
-Add `Bundle 'tomphp/vim-php-refactoring'` to your `.vimrc` file and then:
+Add `Bundle 'vim-php/vim-php-refactoring'` to your `.vimrc` file and then:
 * either run `:BundleInstall` within vim
 * or run `vim +BundleInstall +qall` from your shell
 
