@@ -1,5 +1,6 @@
-let g:php_refactor_command='php ~/bin/refactor.phar'
-let g:php_refactor_patch_command='patch -p1'
+if !exists("g:php_refactor_patch_command")
+    let g:php_refactor_patch_command='patch -p1'
+endif
 
 func! PhpRefactorExtractMethod()
     " check the file has been saved
@@ -70,6 +71,11 @@ func! PhpRefactorOptimizeUse()
 endfunc
 
 func! PhpRefactorRunCommand(refactoring, args)
+    if !exists("g:php_refactor_command")
+        echom 'You need to set g:php_refactor_command in your .vimrc'
+        return
+    endif
+
     " Enable autoread to stop prompting for reload
     setlocal autoread
 
