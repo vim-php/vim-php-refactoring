@@ -109,4 +109,6 @@ func! PhpRefactorRunCommand(refactoring, args)
     exec command .' | '.g:php_refactor_patch_command
 
     setlocal noautoread
+
+    exec ':redraw!'
 endfunc
