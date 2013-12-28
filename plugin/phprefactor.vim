@@ -2,25 +2,45 @@ if !exists("g:php_refactor_patch_command")
     let g:php_refactor_patch_command='patch -p1'
 endif
 
-func! PhpRefactorExtractMethod()
+func! PhpRefactorShowMenu() range
+    echohl Title
+    echo 'Available Refactorings:'
+    echohl None
+    echo '(em) Extract Method'
+    echo '(lv) rename Local Variable'
+    echo '(li) Local variable to Instance variable'
+    echo '(ou) Optimize Use'
+    echo ''
+    echo '(c) Cancel'
+    echo ''
+    
+    let choice = nr2char(getchar())
+    if choice == 'c'
+        return
+    endif
+    let choice = choice . nr2char(getchar())
+
+    if choice == 'em'
+        call PhpRefactorExtractMethod(a:firstline, a:lastline)
+    elseif choice == 'lv'
+        call PhpRefactorRenameLocalVariable()
+    elseif choice == 'li'
+        call PhpRefactorLocalVariableToInstanceVariable()
+    elseif choice == 'ou'
+        call PhpRefactorOptimizeUse()
+    endif
+endfunc
+
+func! PhpRefactorExtractMethod(startline, endline)
     " check the file has been saved
     if &modified
         echom 'Cannot refactor; file contains unsaved changes'
         return
     endif
 
-    let startLine = line('v')
-    let endLine = line('.')
     let method = input('Enter extracted method name: ')
 
-    " check line numbers are the right way around
-    if startLine > endLine
-        let temp = startLine
-        let startLine = endLine
-        let endLine = temp
-    endif
-
-    let range = startLine . '-' . endLine
+    let range = a:startline . '-' . a:endline
 
     let args = [range, method]
 
