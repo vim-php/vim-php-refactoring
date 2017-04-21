@@ -33,7 +33,7 @@ You will be prompted for the name of the new method.
 
 If you want to bypass the menu:
 
-    nnoremap <leader>em :call PhpRefactorExtractMethodDirectly()<cr>
+    vnoremap <leader>em :call PhpRefactorExtractMethodDirectly()<cr>
 
 ### RENAME LOCAL VARIABLE
 In normal mode move the cursor so it's inside the name of the variable
