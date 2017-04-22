@@ -49,6 +49,10 @@ func! PhpRefactorExtractMethod(startline, endline)
     " todo : exit visual mode
 endfunc
 
+func! PhpRefactorExtractMethodDirectly() range
+    call PhpRefactorExtractMethod(a:firstline, a:lastline)
+endfunc
+
 func! PhpRefactorLocalVariableToInstanceVariable()
     " check the file has been saved
     if &modified
